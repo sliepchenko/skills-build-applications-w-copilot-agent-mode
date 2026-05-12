@@ -8,7 +8,7 @@ class Command(BaseCommand):
     help = 'Populate the database with sample data'
 
     def handle(self, *args, **options):
-        # Create users
+        # Create test users for the database
         users_data = [
             {'username': 'alice', 'email': 'alice@example.com', 'first_name': 'Alice', 'last_name': 'Smith'},
             {'username': 'bob', 'email': 'bob@example.com', 'first_name': 'Bob', 'last_name': 'Johnson'},
@@ -32,9 +32,11 @@ class Command(BaseCommand):
                 user.save()
             users.append(user)
 
-        # Profiles are created via signal
+        # Create test user profiles
+        for user in users:
+            UserProfile.objects.get_or_create(user=user)
 
-        # Create activities
+        # Create test activities for leaderboard
         activity_types = ['running', 'cycling', 'swimming', 'walking', 'yoga', 'weightlifting']
         for user in users:
             for _ in range(random.randint(5, 15)):
@@ -47,7 +49,7 @@ class Command(BaseCommand):
                     date=datetime.now() - timedelta(days=random.randint(0, 30))
                 )
 
-        # Create teams
+        # Create test teams
         team_data = [
             {'name': 'Runners Club', 'description': 'For running enthusiasts'},
             {'name': 'Cyclists United', 'description': 'Bike lovers unite'},
@@ -60,8 +62,8 @@ class Command(BaseCommand):
                 description=data['description'],
                 created_by=random.choice(users)
             )
-            # Add random members
+            # Add random test team members
             members = random.sample(users, random.randint(2, len(users)))
             team.members.set(members)
 
-        self.stdout.write(self.style.SUCCESS('Successfully populated the database'))
+        self.stdout.write(self.style.SUCCESS('Successfully populated the database with test data'))
