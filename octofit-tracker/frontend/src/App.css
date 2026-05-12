@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
-}
+/* OctoFit Tracker - App Styles */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background-color: #f0f4f8;
+  color: #1a1a2e;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ---- Navbar ---- */
+.bg-octofit {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-bottom: 2px solid #e94560;
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  transition: color 0.2s;
+  font-size: 0.97rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #e94560 !important;
+}
+
+/* ---- Hero Section ---- */
+.hero-section {
+  background: linear-gradient(135deg, #e8f4fd 0%, #f0f4f8 100%);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  margin: 1rem auto;
+  max-width: 800px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+}
+
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(233, 69, 96, 0.3);
+  border: 3px solid #e94560;
+}
+
+/* ---- Main Content ---- */
+.main-content {
+  flex: 1;
+  background-color: #f0f4f8;
+}
+
+/* ---- Tables ---- */
+.table {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.table thead th {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  border-color: #0f3460;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr:hover {
+  background-color: #e8f4fd;
+}
+
+/* ---- Cards ---- */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.card-header.bg-primary {
+  background: linear-gradient(135deg, #0f3460, #1a1a2e) !important;
+}
+
+.card-header.bg-success {
+  background: linear-gradient(135deg, #1b6ca8, #16213e) !important;
+}
+
+/* ---- Headings ---- */
+h2.display-6 {
+  color: #1a1a2e;
+  border-left: 4px solid #e94560;
+  padding-left: 12px;
+}
+
+/* ---- Buttons ---- */
+.btn-primary {
+  background-color: #0f3460;
+  border-color: #0f3460;
+}
+
+.btn-primary:hover {
+  background-color: #1a1a2e;
+  border-color: #e94560;
+}
+
+/* ---- Badges ---- */
+.badge.bg-success {
+  background-color: #e94560 !important;
+  font-size: 1rem !important;
+}
+
+/* ---- Footer ---- */
+.footer-octofit {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  border-top: 2px solid #e94560;
+}
+
+/* ---- Spinner ---- */
+.spinner-border.text-primary {
+  color: #e94560 !important;
+}
+
+/* ---- Alert ---- */
+.alert-danger {
+  border-left: 4px solid #e94560;
 }
