@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-7b#zjj3_w3ceojft24$)ut84rh*8sd*el8#)n5gkfv3j!*m!z3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 if os.environ.get('CODESPACE_NAME'):
     ALLOWED_HOSTS.append(f"{os.environ.get('CODESPACE_NAME')}-8000.app.github.dev")
 
@@ -40,17 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
     'rest_framework',
-    'rest_framework.authtoken',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'dj_rest_auth',
-    'dj_rest_auth.registration',
     'corsheaders',
-    'djongo',
-    'fitness',
+    'octofit_tracker',
 ]
 
 MIDDLEWARE = [
@@ -137,8 +129,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SITE_ID = 1
-
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
+# CORS settings - allow all origins, methods, and headers
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_METHODS = True
+CORS_ALLOW_ALL_HEADERS = True
